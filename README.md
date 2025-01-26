@@ -165,7 +165,7 @@ The app uses a locally hardcoded JSON-like structure for video metadata. Example
 ## Known Issues
 
 1. Using the Ultra HD playback quality hurts performance by a lot. Workaround: use the HD or SD playback quality.
-2. On some rare occasions, the video playback slider behaves incorrectly. Workaround: restart the app.
+2. ~~On some rare occasions, the video playback slider behaves incorrectly. Workaround: restart the app.~~ Fixed.
 
 ---
 

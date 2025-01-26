@@ -31,6 +31,10 @@ final class FeedsCollectionView: UICollectionView {
     
     weak var feedsDelegate: FeedsCollectionViewDelegate?
     
+    // MARK: - UI Properties -
+    
+    private lazy var emptyStateView = createEmptyStateView()
+    
     // MARK: - Lifecycle -
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
@@ -53,6 +57,7 @@ final class FeedsCollectionView: UICollectionView {
         })
         backgroundColor = .black
         contentInsetAdjustmentBehavior = .never
+        decelerationRate = .fast
         delegate = self
         dataSource = self
         isPagingEnabled = true
@@ -60,6 +65,11 @@ final class FeedsCollectionView: UICollectionView {
         showsVerticalScrollIndicator = false
         register(FeedsCollectionViewCell.self, forCellWithReuseIdentifier: "\(FeedsCollectionViewCell.self)")
         register(FeedsErrorCell.self, forCellWithReuseIdentifier: "\(FeedsErrorCell.self)")
+        
+        addSubview(emptyStateView)
+        emptyStateView.snp.makeConstraints { make in
+            make.horizontalEdges.centerY.centerX.equalToSuperview()
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -169,5 +179,45 @@ extension FeedsCollectionView {
     func setError(with message: String?) {
         self.errorMessage = message
         reloadData()
+    }
+    
+    func toggleShowEmptyState(to isShown: Bool) {
+        if isShown {
+            emptyStateView.fadeIn()
+        } else {
+            emptyStateView.fadeOut()
+        }
+    }
+}
+
+private extension FeedsCollectionView {
+    func createEmptyStateView() -> UIView {
+        let emoticonLabel = UILabel()
+        emoticonLabel.font = .systemFont(ofSize: 36)
+        emoticonLabel.text = "🥱"
+        emoticonLabel.textAlignment = .center
+        
+        let titleLabel = UILabel()
+        titleLabel.font = .systemFont(ofSize: 24, weight: .bold)
+        titleLabel.numberOfLines = 0
+        titleLabel.text = "No videos for now..."
+        titleLabel.textAlignment = .center
+        titleLabel.textColor = .white
+        
+        let descriptionLabel = UILabel()
+        descriptionLabel.font = .systemFont(ofSize: 14, weight: .regular)
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.text = "Try refresh the feeds again simply by pulling down"
+        descriptionLabel.textAlignment = .center
+        descriptionLabel.textColor = .white
+        
+        let stackView = UIStackView(arrangedSubviews: [emoticonLabel, titleLabel, descriptionLabel])
+        stackView.alignment = .center
+        stackView.alpha = 0
+        stackView.axis = .vertical
+        stackView.distribution = .equalSpacing
+        stackView.spacing = 12
+        
+        return stackView
     }
 }

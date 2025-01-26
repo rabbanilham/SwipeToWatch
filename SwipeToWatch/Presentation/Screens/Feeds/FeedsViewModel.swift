@@ -27,14 +27,19 @@ class FeedsViewModel: ObservableObject {
                 )
                 var videosResponse = VideoListResponse(videos: data)
                 videosResponse.addLikesToVideos()
+                var videoList = videosResponse.videos ?? []
                 if UserPreference.shared.shuffleFeeds {
-                    videos = videosResponse.videos?.shuffled() ?? []
-                } else {
-                    videos = videosResponse.videos ?? []
+                    videoList = videoList.shuffled()
                 }
+                if UserPreference.shared.simulateEmptyVideoList {
+                    videoList = []
+                }
+                isLoading = false
+                videos = videoList
                 errorMessage = nil
             } catch {
                 errorMessage = "Error: \(error)"
+                isLoading = false
             }
         } else {
             do {
@@ -48,32 +53,29 @@ class FeedsViewModel: ObservableObject {
                 let decoder = JSONDecoder()
                 var videosResponse = try decoder.decode(VideoListResponse.self, from: data)
                 videosResponse.addLikesToVideos()
+                var videoList = videosResponse.videos ?? []
                 if UserPreference.shared.shuffleFeeds {
-                    videos = videosResponse.videos?.shuffled() ?? []
-                } else {
-                    videos = videosResponse.videos ?? []
+                    videoList = videosResponse.videos?.shuffled() ?? []
                 }
+                if UserPreference.shared.simulateEmptyVideoList {
+                    videoList = []
+                }
+                videos = videoList
+                isLoading = false
                 errorMessage = nil
             } catch {
                 errorMessage = "Error decoding JSON: \(error)"
+                isLoading = false
             }
         }
-        
-        isLoading = false
     }
     
     func toggleLikeVideo(_ video: Video) {
         guard let videoId = video.id else { return }
         if UserPreference.shared.likedVideoIds.contains(videoId) {
             UserPreference.shared.likedVideoIds.removeAll(where: { $0 == videoId })
-            if let videoIndex = videos.firstIndex(where: { $0.id == videoId }) {
-                videos[videoIndex].likes! -= 1
-            }
         } else {
             UserPreference.shared.likedVideoIds.append(videoId)
-            if let videoIndex = videos.firstIndex(where: { $0.id == videoId }) {
-                videos[videoIndex].likes! += 1
-            }
         }
     }
 }

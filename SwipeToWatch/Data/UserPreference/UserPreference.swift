@@ -56,6 +56,16 @@ public final class UserPreference {
         }
     }
     
+    public var simulateEmptyVideoList: Bool {
+        get {
+            guard let value = userDefault.value(forKey: .simulateEmptyVideoList) as? Bool else { return false }
+            return value
+        }
+        set {
+            userDefault.set(newValue, forKey: .simulateEmptyVideoList)
+        }
+    }
+    
     public var simulateFetchError: Bool {
         get {
             guard let value = userDefault.value(forKey: .simulateFetchError) as? Bool else { return false }

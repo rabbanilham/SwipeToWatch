@@ -12,6 +12,7 @@ extension String {
     static let clearCache = "clearCache"
     static let playbackQuality = "playbackQuality"
     static let preferredOrientation = "preferredOrientation"
+    static let simulateEmptyVideoList = "simulateEmptyVideoList"
     static let simulateFetchError = "simulateFetchError"
     static let shuffleFeeds = "shuffleFeeds"
     static let useApiCall = "useApiCall"

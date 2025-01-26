@@ -25,11 +25,11 @@ final class MainTabBarController: UITabBarController {
             image: UIImage(systemName: "gearshape"),
             selectedImage: UIImage(systemName: "gearshape.fill")
         )
-        
+        let viewControllers = [feedsViewController, settingsViewController].map { UINavigationController(rootViewController: $0) }
         tabBar.backgroundColor = .black
         tabBar.barTintColor = .black
         tabBar.tintColor = .systemPink
         tabBar.isTranslucent = false
-        self.viewControllers = [feedsViewController, UINavigationController(rootViewController: settingsViewController)]
+        self.viewControllers = viewControllers
     }
 }

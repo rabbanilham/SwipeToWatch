@@ -242,8 +242,10 @@ final class FeedsCollectionViewCell: UICollectionViewCell {
         configureToZero()
         activityIndicator.startAnimating()
         likeButton.toggleLiked(to: false)
+        videoSlider.value = 0
         pausedIndicatorImageView.alpha = 0
         errorView.alpha = 0
+        removeObservers()
     }
 }
 
@@ -265,8 +267,9 @@ extension FeedsCollectionViewCell: FeedButtonDelegate {
 extension FeedsCollectionViewCell {
     func configure(with video: Video) {
         errorView.alpha = 0
-        player = nil
+        videoSlider.alpha = 1
         videoSlider.value = 0
+        isPlaying = false
         
         self.video = video
         likeButton.configure(text: "\(video.likes ?? 0)")
@@ -282,6 +285,7 @@ extension FeedsCollectionViewCell {
         showPauseButton: Bool = false,
         stopStreaming: Bool = false
     ) {
+        guard errorView.alpha != 1 else { return }
         self.isPlaying = isPlaying
         if showPauseButton {
             if isPlaying {
@@ -305,7 +309,6 @@ extension FeedsCollectionViewCell {
     }
     
     func configureToZero() {
-        timeObserver = nil
         player?.seek(to: .zero)
     }
 }
@@ -319,12 +322,14 @@ extension FeedsCollectionViewCell {
             switch playerItem.status {
             case .readyToPlay:
                 activityIndicator.stopAnimating()
+                setupSliderObserver()
                 print("Player is ready to play")
             case .failed:
                 if let error = playerItem.error {
                     activityIndicator.stopAnimating()
                     errorDescriptionLabel.text = error.localizedDescription
                     errorView.fadeIn()
+                    videoSlider.fadeOut()
                     print("Playback failed with error: \(error.localizedDescription)")
                 }
             default:
@@ -335,6 +340,7 @@ extension FeedsCollectionViewCell {
                 activityIndicator.stopAnimating()
                 errorDescriptionLabel.text = error.localizedDescription
                 errorView.fadeIn()
+                videoSlider.fadeOut()
                 print("Error observed: \(error.localizedDescription)")
             }
         case "isPlaybackLikelyToKeepUp":
@@ -387,14 +393,13 @@ private extension FeedsCollectionViewCell {
             self.playerLayer.frame = self.videoView.bounds
             self.videoView.layer.masksToBounds = true
         }
-        
-        // Setup periodic time observer to update slider
-        setupSliderObserver()
     }
     
     func setupSliderObserver() {
         timeObserver = player?.addPeriodicTimeObserver(forInterval: CMTimeMake(value: 1, timescale: 60), queue: .main) { [weak self] time in
-            guard let self = self, let duration = self.player?.currentItem?.duration else { return }
+            guard let self = self,
+                  let duration = self.player?.currentItem?.duration
+            else { return }
             let currentTime = CMTimeGetSeconds(time)
             let totalTime = CMTimeGetSeconds(duration)
             self.videoSlider.value = Float(currentTime / totalTime)
@@ -415,6 +420,23 @@ private extension FeedsCollectionViewCell {
             object: player?.currentItem
         )
     }
+    
+    func removeObservers() {
+        guard let playerItem = player?.currentItem else { return }
+        
+        playerItem.removeObserver(self, forKeyPath: "status")
+        playerItem.removeObserver(self, forKeyPath: "error")
+        playerItem.removeObserver(self, forKeyPath: "isPlaybackLikelyToKeepUp")
+        playerItem.removeObserver(self, forKeyPath: "isPlaybackBufferEmpty")
+        NotificationCenter.default.removeObserver(self, name: .AVPlayerItemDidPlayToEndTime, object: player?.currentItem)
+        
+        if let timeObserver = timeObserver {
+            player?.removeTimeObserver(timeObserver)
+        }
+        timeObserver = nil
+        player = nil
+    }
+
     
     func handleBuffering(_ isBuffering: Bool) {
         if isBuffering {
@@ -480,6 +502,7 @@ private extension FeedsCollectionViewCell {
     
     @objc
     func sliderValueChanged(_ sender: UISlider) {
+        guard errorView.alpha != 1 else { return }
         let totalDuration = player?.currentItem?.asset.duration.seconds ?? 0
         let newSeconds = totalDuration * Double(sender.value)
         let currentIntegerSecond = Int(newSeconds)

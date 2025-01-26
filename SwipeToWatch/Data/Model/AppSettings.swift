@@ -25,6 +25,7 @@ struct AppSettings {
 //            .init(name: .preferredOrientation, title: "Preferred Orientation", description: "Only preferred orientation videos will be shown"),
             .init(name: .playbackQuality, title: "Playback Quality"),
             .init(name: .shuffleFeeds, title: "Shuffle Feeds", description: "Feeds will show in random sequence every time"),
+            .init(name: .simulateEmptyVideoList, title: "Simulate Empty Video List", description: "No feeds will be shown, showcasing the empty state of feeds page"),
             .init(name: .simulateFetchError, title: "Simulate Fetch Error", description: "Test negative case while fetching feeds"),
             .init(name: .useApiCall, title: "Use API Call", description: "Hit the mock API, simulates API call to fetch feeds")
         ]

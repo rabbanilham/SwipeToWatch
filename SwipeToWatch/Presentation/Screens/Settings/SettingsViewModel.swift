@@ -21,6 +21,11 @@ class SettingsViewModel: ObservableObject {
                 UserPreference.shared.shuffleFeeds = shuffleFeeds
             }
             
+        case .simulateEmptyVideoList:
+            if let simulateEmptyVideoList = value as? Bool {
+                UserPreference.shared.simulateEmptyVideoList = simulateEmptyVideoList
+            }
+            
         case .simulateFetchError:
             if let simulateFetchError = value as? Bool {
                 UserPreference.shared.simulateFetchError = simulateFetchError

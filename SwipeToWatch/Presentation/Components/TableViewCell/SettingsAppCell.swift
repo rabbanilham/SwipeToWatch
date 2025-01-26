@@ -53,7 +53,12 @@ final class SettingsAppCell: UITableViewCell {
     }
     
     func configure(with setting: AppSettings, transparent: Bool = false) {
-        selectionStyle = .none
+        switch setting.name {
+        case .clearCache, .playbackQuality:
+            break
+        default:
+            selectionStyle = .none
+        }
         self.setting = setting
         settingName = setting.name
         self.transparent = transparent
@@ -78,6 +83,9 @@ final class SettingsAppCell: UITableViewCell {
             switch setting.name {
             case .shuffleFeeds:
                 toggleSwitch.setOn(UserPreference.shared.shuffleFeeds, animated: true)
+                return toggleSwitch
+            case .simulateEmptyVideoList:
+                toggleSwitch.setOn(UserPreference.shared.simulateEmptyVideoList, animated: true)
                 return toggleSwitch
             case .simulateFetchError:
                 toggleSwitch.setOn(UserPreference.shared.simulateFetchError, animated: true)

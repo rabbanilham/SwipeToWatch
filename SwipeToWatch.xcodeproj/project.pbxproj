@@ -160,8 +160,8 @@
 		3829A3932D448E8B004938A5 /* SwipeToWatch */ = {
 			isa = PBXGroup;
 			children = (
-				38A7A4CA2D451DA400B23EFF /* Common */,
 				3829A3A72D44A062004938A5 /* Application */,
+				38A7A4CA2D451DA400B23EFF /* Common */,
 				3829A3AF2D44A3FB004938A5 /* Data */,
 				3829A3A92D44A0D6004938A5 /* Presentation */,
 				3829A3A82D44A06C004938A5 /* Resources */,
@@ -198,10 +198,10 @@
 		3829A3A82D44A06C004938A5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3829A3B82D44A8B8004938A5 /* video_response.json */,
 				3829A38B2D448E8B004938A5 /* Assets.xcassets */,
 				3829A38C2D448E8B004938A5 /* Info.plist */,
 				3829A38E2D448E8B004938A5 /* LaunchScreen.storyboard */,
+				3829A3B82D44A8B8004938A5 /* video_response.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -260,9 +260,9 @@
 			isa = PBXGroup;
 			children = (
 				38A7A4D72D454D9900B23EFF /* AppSettings.swift */,
+				3829A3B42D44A711004938A5 /* User.swift */,
 				3829A3B62D44A76A004938A5 /* Video.swift */,
 				3829A3B22D44A691004938A5 /* VideoListResponse.swift */,
-				3829A3B42D44A711004938A5 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -270,8 +270,8 @@
 		3829A3B12D44A5C8004938A5 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				38A7A4E22D4563BE00B23EFF /* NetworkLogger.swift */,
 				38A7A4E02D45639F00B23EFF /* APIService.swift */,
+				38A7A4E22D4563BE00B23EFF /* NetworkLogger.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";

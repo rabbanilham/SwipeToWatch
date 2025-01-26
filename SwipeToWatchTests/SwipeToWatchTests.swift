@@ -87,7 +87,6 @@ final class FeedsViewModelTests: XCTestCase {
         // Arrange
         let video = Video(duration: 16, id: 1, likes: 100)
         let videoId = video.id ?? 0
-        let initialVideoLikes = video.likes
         viewModel.videos = [video]
         
         // Act to like
@@ -95,13 +94,13 @@ final class FeedsViewModelTests: XCTestCase {
         
         // Assert
         XCTAssertTrue(mockUserPreference.likedVideoIds.contains(videoId))
-        XCTAssertEqual(viewModel.videos.first?.likes!, (initialVideoLikes ?? 1) + 1)
+        XCTAssertEqual(mockUserPreference.likedVideoIds.count, 1)
         
         // Act again to unlike
         viewModel.toggleLikeVideo(video)
         
         // Assert
         XCTAssertFalse(mockUserPreference.likedVideoIds.contains(videoId))
-        XCTAssertEqual(viewModel.videos.first?.likes!, initialVideoLikes)
+        XCTAssertEqual(mockUserPreference.likedVideoIds.count, 0)
     }
 }

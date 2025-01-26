@@ -5,32 +5,103 @@
 //  Created by Bagas Ilham on 25/01/2025.
 //
 
+import Alamofire
 import XCTest
 @testable import SwipeToWatch
 
-final class SwipeToWatchTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+@MainActor
+final class FeedsViewModelTests: XCTestCase {
+    private var viewModel: FeedsViewModel!
+    private var mockUserPreference: UserPreference!
+    private var mockAPIService: APIService!
+    
+    override func setUp() {
+        super.setUp()
+        viewModel = FeedsViewModel()
+        mockUserPreference = UserPreference.shared
+        mockAPIService = APIService.shared
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    override func tearDown() {
+        viewModel = nil
+        mockUserPreference = nil
+        mockAPIService = nil
+        super.tearDown()
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    
+    func testFetchVideos_withApiCall() async {
+        // Arrange
+        mockUserPreference.useApiCall = true
+        mockUserPreference.shuffleFeeds = false
+        mockUserPreference.simulateFetchError = false
+        
+        // Act
+        await viewModel.fetchVideos()
+        
+        // Assert
+        XCTAssertEqual(viewModel.videos.count, 20)
+        XCTAssertEqual(viewModel.videos.first?.id, 5896379)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testFetchVideos_withJsonFile() async {
+        // Arrange
+        mockUserPreference.useApiCall = false
+        mockUserPreference.shuffleFeeds = false
+        mockUserPreference.simulateFetchError = false
+        
+        // Act
+        await viewModel.fetchVideos()
+        
+        // Assert
+        XCTAssertEqual(viewModel.videos.count, 80)
+        XCTAssertEqual(viewModel.videos.first?.id, 3571264)
     }
-
+    
+    func testFetchVideos_withApiError() async {
+        // Arrange
+        mockUserPreference.useApiCall = true
+        mockUserPreference.simulateFetchError = true
+        
+        // Act
+        await viewModel.fetchVideos()
+        
+        // Assert
+        XCTAssertEqual(viewModel.videos.count, 0)
+        XCTAssertNotNil(viewModel.errorMessage)
+    }
+    
+    func testFetchVideos_withJsonError() async {
+        // Arrange
+        mockUserPreference.useApiCall = false
+        mockUserPreference.simulateFetchError = true
+        
+        // Act
+        await viewModel.fetchVideos()
+        
+        // Assert
+        XCTAssertEqual(viewModel.videos.count, 0)
+        XCTAssertNotNil(viewModel.errorMessage)
+    }
+    
+    func testToggleLikeVideo() {
+        // Arrange
+        let video = Video(duration: 16, id: 1, likes: 100)
+        let videoId = video.id ?? 0
+        let initialVideoLikes = video.likes
+        viewModel.videos = [video]
+        
+        // Act to like
+        viewModel.toggleLikeVideo(video)
+        
+        // Assert
+        XCTAssertTrue(mockUserPreference.likedVideoIds.contains(videoId))
+        XCTAssertEqual(viewModel.videos.first?.likes!, (initialVideoLikes ?? 1) + 1)
+        
+        // Act again to unlike
+        viewModel.toggleLikeVideo(video)
+        
+        // Assert
+        XCTAssertFalse(mockUserPreference.likedVideoIds.contains(videoId))
+        XCTAssertEqual(viewModel.videos.first?.likes!, initialVideoLikes)
+    }
 }

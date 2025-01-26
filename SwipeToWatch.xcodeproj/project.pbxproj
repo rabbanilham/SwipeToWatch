@@ -6,6 +6,43 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		3829A3942D448E8B004938A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3829A38A2D448E8B004938A5 /* AppDelegate.swift */; };
+		3829A3952D448E8B004938A5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3829A3912D448E8B004938A5 /* SceneDelegate.swift */; };
+		3829A3972D448E8B004938A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3829A38B2D448E8B004938A5 /* Assets.xcassets */; };
+		3829A3992D448E8B004938A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3829A38E2D448E8B004938A5 /* LaunchScreen.storyboard */; };
+		3829A39D2D448E8F004938A5 /* SwipeToWatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3829A39B2D448E8F004938A5 /* SwipeToWatchTests.swift */; };
+		3829A3A12D448E92004938A5 /* SwipeToWatchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3829A39E2D448E92004938A5 /* SwipeToWatchUITests.swift */; };
+		3829A3A22D448E92004938A5 /* SwipeToWatchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3829A39F2D448E92004938A5 /* SwipeToWatchUITestsLaunchTests.swift */; };
+		3829A3A42D449D0C004938A5 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3829A3A32D449D0C004938A5 /* MainTabBarController.swift */; };
+		3829A3A62D449D7A004938A5 /* FeedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3829A3A52D449D7A004938A5 /* FeedsViewController.swift */; };
+		3829A3AE2D44A36F004938A5 /* FeedsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3829A3AD2D44A36F004938A5 /* FeedsViewModel.swift */; };
+		3829A3B32D44A691004938A5 /* VideoListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3829A3B22D44A691004938A5 /* VideoListResponse.swift */; };
+		3829A3B52D44A711004938A5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3829A3B42D44A711004938A5 /* User.swift */; };
+		3829A3B72D44A76A004938A5 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3829A3B62D44A76A004938A5 /* Video.swift */; };
+		3829A3B92D44A8D0004938A5 /* video_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 3829A3B82D44A8B8004938A5 /* video_response.json */; };
+		3829A3BE2D44AE97004938A5 /* FeedsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3829A3BD2D44AE97004938A5 /* FeedsCollectionView.swift */; };
+		3829A3C02D44B00B004938A5 /* FeedsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3829A3BF2D44B00B004938A5 /* FeedsCollectionViewCell.swift */; };
+		3829A3C32D44B587004938A5 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3829A3C22D44B587004938A5 /* UIView+Extension.swift */; };
+		3829A3C92D44DB6E004938A5 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3829A3C82D44DB6E004938A5 /* CustomSlider.swift */; };
+		3829A3CC2D44F034004938A5 /* FeedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3829A3CB2D44F034004938A5 /* FeedButton.swift */; };
+		3869CD502D463790002BD196 /* FeedsErrorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869CD4F2D463790002BD196 /* FeedsErrorCell.swift */; };
+		38A7A4C92D45102D00B23EFF /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A7A4C82D45102D00B23EFF /* LikeButton.swift */; };
+		38A7A4CD2D451DBB00B23EFF /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A7A4CC2D451DBB00B23EFF /* Functions.swift */; };
+		38A7A4D02D45236800B23EFF /* UserPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A7A4CF2D45236800B23EFF /* UserPreference.swift */; };
+		38A7A4D32D45363E00B23EFF /* VideoCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A7A4D22D45363E00B23EFF /* VideoCache.swift */; };
+		38A7A4D62D454CC700B23EFF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A7A4D52D454CC700B23EFF /* SettingsViewController.swift */; };
+		38A7A4D82D454D9900B23EFF /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A7A4D72D454D9900B23EFF /* AppSettings.swift */; };
+		38A7A4DA2D454DD800B23EFF /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A7A4D92D454DD800B23EFF /* String+Extension.swift */; };
+		38A7A4DD2D454F9700B23EFF /* SettingsAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A7A4DC2D454F9700B23EFF /* SettingsAppCell.swift */; };
+		38A7A4DF2D45561A00B23EFF /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A7A4DE2D45561A00B23EFF /* SettingsViewModel.swift */; };
+		38A7A4E12D45639F00B23EFF /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A7A4E02D45639F00B23EFF /* APIService.swift */; };
+		38A7A4E32D4563BE00B23EFF /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A7A4E22D4563BE00B23EFF /* NetworkLogger.swift */; };
+		8244F8728C434D1B5E017A41 /* Pods_SwipeToWatchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0D15958B702EB9F92383AD6 /* Pods_SwipeToWatchTests.framework */; };
+		DF7187594CEF2D3E1A892B99 /* Pods_SwipeToWatch_SwipeToWatchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5555F8DE90F4F0E970AEBD6D /* Pods_SwipeToWatch_SwipeToWatchUITests.framework */; };
+		EB5B31BF0B6C28D0161B1165 /* Pods_SwipeToWatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C7665E169FACEFB48EA5D8D /* Pods_SwipeToWatch.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		3829A36D2D448E69004938A5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,44 +64,55 @@
 		3829A3562D448E67004938A5 /* SwipeToWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwipeToWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3829A36C2D448E69004938A5 /* SwipeToWatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwipeToWatchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3829A3762D448E69004938A5 /* SwipeToWatchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwipeToWatchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3829A38A2D448E8B004938A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3829A38B2D448E8B004938A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3829A38C2D448E8B004938A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3829A38D2D448E8B004938A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3829A3912D448E8B004938A5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		3829A39B2D448E8F004938A5 /* SwipeToWatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToWatchTests.swift; sourceTree = "<group>"; };
+		3829A39E2D448E92004938A5 /* SwipeToWatchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToWatchUITests.swift; sourceTree = "<group>"; };
+		3829A39F2D448E92004938A5 /* SwipeToWatchUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToWatchUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3829A3A32D449D0C004938A5 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		3829A3A52D449D7A004938A5 /* FeedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewController.swift; sourceTree = "<group>"; };
+		3829A3AD2D44A36F004938A5 /* FeedsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsViewModel.swift; sourceTree = "<group>"; };
+		3829A3B22D44A691004938A5 /* VideoListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListResponse.swift; sourceTree = "<group>"; };
+		3829A3B42D44A711004938A5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3829A3B62D44A76A004938A5 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		3829A3B82D44A8B8004938A5 /* video_response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = video_response.json; sourceTree = "<group>"; };
+		3829A3BD2D44AE97004938A5 /* FeedsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsCollectionView.swift; sourceTree = "<group>"; };
+		3829A3BF2D44B00B004938A5 /* FeedsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsCollectionViewCell.swift; sourceTree = "<group>"; };
+		3829A3C22D44B587004938A5 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		3829A3C82D44DB6E004938A5 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
+		3829A3CB2D44F034004938A5 /* FeedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedButton.swift; sourceTree = "<group>"; };
+		3869CD4F2D463790002BD196 /* FeedsErrorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsErrorCell.swift; sourceTree = "<group>"; };
+		38A7A4C82D45102D00B23EFF /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
+		38A7A4CC2D451DBB00B23EFF /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		38A7A4CF2D45236800B23EFF /* UserPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreference.swift; sourceTree = "<group>"; };
+		38A7A4D22D45363E00B23EFF /* VideoCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCache.swift; sourceTree = "<group>"; };
+		38A7A4D52D454CC700B23EFF /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		38A7A4D72D454D9900B23EFF /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		38A7A4D92D454DD800B23EFF /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		38A7A4DC2D454F9700B23EFF /* SettingsAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAppCell.swift; sourceTree = "<group>"; };
+		38A7A4DE2D45561A00B23EFF /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		38A7A4E02D45639F00B23EFF /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		38A7A4E22D4563BE00B23EFF /* NetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
+		48999AA2AC5229FE43168EBA /* Pods-SwipeToWatch-SwipeToWatchUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwipeToWatch-SwipeToWatchUITests.release.xcconfig"; path = "Target Support Files/Pods-SwipeToWatch-SwipeToWatchUITests/Pods-SwipeToWatch-SwipeToWatchUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4FA9BF7D52FDDA527CD9B824 /* Pods-SwipeToWatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwipeToWatch.release.xcconfig"; path = "Target Support Files/Pods-SwipeToWatch/Pods-SwipeToWatch.release.xcconfig"; sourceTree = "<group>"; };
+		5555F8DE90F4F0E970AEBD6D /* Pods_SwipeToWatch_SwipeToWatchUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwipeToWatch_SwipeToWatchUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C7665E169FACEFB48EA5D8D /* Pods_SwipeToWatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwipeToWatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA5929459FEEAD1DAFAE71D2 /* Pods-SwipeToWatchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwipeToWatchTests.release.xcconfig"; path = "Target Support Files/Pods-SwipeToWatchTests/Pods-SwipeToWatchTests.release.xcconfig"; sourceTree = "<group>"; };
+		C182D94C54DE4E546FE25D42 /* Pods-SwipeToWatchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwipeToWatchTests.debug.xcconfig"; path = "Target Support Files/Pods-SwipeToWatchTests/Pods-SwipeToWatchTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CB827BD016A0D440E30A78E6 /* Pods-SwipeToWatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwipeToWatch.debug.xcconfig"; path = "Target Support Files/Pods-SwipeToWatch/Pods-SwipeToWatch.debug.xcconfig"; sourceTree = "<group>"; };
+		D0D15958B702EB9F92383AD6 /* Pods_SwipeToWatchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwipeToWatchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DBA2392B0CA506D78BD626B1 /* Pods-SwipeToWatch-SwipeToWatchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwipeToWatch-SwipeToWatchUITests.debug.xcconfig"; path = "Target Support Files/Pods-SwipeToWatch-SwipeToWatchUITests/Pods-SwipeToWatch-SwipeToWatchUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		3829A37E2D448E69004938A5 /* Exceptions for "SwipeToWatch" folder in "SwipeToWatch" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 3829A3552D448E67004938A5 /* SwipeToWatch */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		3829A3582D448E67004938A5 /* SwipeToWatch */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				3829A37E2D448E69004938A5 /* Exceptions for "SwipeToWatch" folder in "SwipeToWatch" target */,
-			);
-			path = SwipeToWatch;
-			sourceTree = "<group>";
-		};
-		3829A36F2D448E69004938A5 /* SwipeToWatchTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = SwipeToWatchTests;
-			sourceTree = "<group>";
-		};
-		3829A3792D448E69004938A5 /* SwipeToWatchUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = SwipeToWatchUITests;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		3829A3532D448E67004938A5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB5B31BF0B6C28D0161B1165 /* Pods_SwipeToWatch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8244F8728C434D1B5E017A41 /* Pods_SwipeToWatchTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF7187594CEF2D3E1A892B99 /* Pods_SwipeToWatch_SwipeToWatchUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,10 +138,12 @@
 		3829A34D2D448E67004938A5 = {
 			isa = PBXGroup;
 			children = (
-				3829A3582D448E67004938A5 /* SwipeToWatch */,
-				3829A36F2D448E69004938A5 /* SwipeToWatchTests */,
-				3829A3792D448E69004938A5 /* SwipeToWatchUITests */,
+				3829A3932D448E8B004938A5 /* SwipeToWatch */,
+				3829A39C2D448E8F004938A5 /* SwipeToWatchTests */,
+				3829A3A02D448E92004938A5 /* SwipeToWatchUITests */,
 				3829A3572D448E67004938A5 /* Products */,
+				7145ECF2FEDB029FE315FD26 /* Pods */,
+				84C949F1606019A45DF656DA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +157,250 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		3829A3932D448E8B004938A5 /* SwipeToWatch */ = {
+			isa = PBXGroup;
+			children = (
+				38A7A4CA2D451DA400B23EFF /* Common */,
+				3829A3A72D44A062004938A5 /* Application */,
+				3829A3AF2D44A3FB004938A5 /* Data */,
+				3829A3A92D44A0D6004938A5 /* Presentation */,
+				3829A3A82D44A06C004938A5 /* Resources */,
+			);
+			path = SwipeToWatch;
+			sourceTree = "<group>";
+		};
+		3829A39C2D448E8F004938A5 /* SwipeToWatchTests */ = {
+			isa = PBXGroup;
+			children = (
+				3829A39B2D448E8F004938A5 /* SwipeToWatchTests.swift */,
+			);
+			path = SwipeToWatchTests;
+			sourceTree = "<group>";
+		};
+		3829A3A02D448E92004938A5 /* SwipeToWatchUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3829A39E2D448E92004938A5 /* SwipeToWatchUITests.swift */,
+				3829A39F2D448E92004938A5 /* SwipeToWatchUITestsLaunchTests.swift */,
+			);
+			path = SwipeToWatchUITests;
+			sourceTree = "<group>";
+		};
+		3829A3A72D44A062004938A5 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				3829A38A2D448E8B004938A5 /* AppDelegate.swift */,
+				3829A3912D448E8B004938A5 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		3829A3A82D44A06C004938A5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3829A3B82D44A8B8004938A5 /* video_response.json */,
+				3829A38B2D448E8B004938A5 /* Assets.xcassets */,
+				3829A38C2D448E8B004938A5 /* Info.plist */,
+				3829A38E2D448E8B004938A5 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3829A3A92D44A0D6004938A5 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				3829A3AB2D44A33C004938A5 /* Components */,
+				3829A3AA2D44A1CA004938A5 /* Screens */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		3829A3AA2D44A1CA004938A5 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				38A7A4D42D454CBB00B23EFF /* Settings */,
+				3829A3AC2D44A35E004938A5 /* Feeds */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		3829A3AB2D44A33C004938A5 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				3829A3CA2D44F021004938A5 /* Button */,
+				3829A3BB2D44AE3B004938A5 /* CollectionView */,
+				3829A3C72D44DB6A004938A5 /* Slider */,
+				3829A3BA2D44AE31004938A5 /* TabBarController */,
+				38A7A4DB2D454F9000B23EFF /* TableViewCell */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		3829A3AC2D44A35E004938A5 /* Feeds */ = {
+			isa = PBXGroup;
+			children = (
+				3829A3A52D449D7A004938A5 /* FeedsViewController.swift */,
+				3829A3AD2D44A36F004938A5 /* FeedsViewModel.swift */,
+			);
+			path = Feeds;
+			sourceTree = "<group>";
+		};
+		3829A3AF2D44A3FB004938A5 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				38A7A4D12D45363400B23EFF /* Cache */,
+				3829A3B02D44A5C2004938A5 /* Model */,
+				3829A3B12D44A5C8004938A5 /* Network */,
+				38A7A4CE2D45233600B23EFF /* UserPreference */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		3829A3B02D44A5C2004938A5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				38A7A4D72D454D9900B23EFF /* AppSettings.swift */,
+				3829A3B62D44A76A004938A5 /* Video.swift */,
+				3829A3B22D44A691004938A5 /* VideoListResponse.swift */,
+				3829A3B42D44A711004938A5 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3829A3B12D44A5C8004938A5 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				38A7A4E22D4563BE00B23EFF /* NetworkLogger.swift */,
+				38A7A4E02D45639F00B23EFF /* APIService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		3829A3BA2D44AE31004938A5 /* TabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				3829A3A32D449D0C004938A5 /* MainTabBarController.swift */,
+			);
+			path = TabBarController;
+			sourceTree = "<group>";
+		};
+		3829A3BB2D44AE3B004938A5 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				3829A3BC2D44AE71004938A5 /* FeedsCollectionView */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		3829A3BC2D44AE71004938A5 /* FeedsCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				3829A3BD2D44AE97004938A5 /* FeedsCollectionView.swift */,
+				3829A3BF2D44B00B004938A5 /* FeedsCollectionViewCell.swift */,
+				3869CD4F2D463790002BD196 /* FeedsErrorCell.swift */,
+			);
+			path = FeedsCollectionView;
+			sourceTree = "<group>";
+		};
+		3829A3C12D44B577004938A5 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3829A3C22D44B587004938A5 /* UIView+Extension.swift */,
+				38A7A4D92D454DD800B23EFF /* String+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		3829A3C72D44DB6A004938A5 /* Slider */ = {
+			isa = PBXGroup;
+			children = (
+				3829A3C82D44DB6E004938A5 /* CustomSlider.swift */,
+			);
+			path = Slider;
+			sourceTree = "<group>";
+		};
+		3829A3CA2D44F021004938A5 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				3829A3CB2D44F034004938A5 /* FeedButton.swift */,
+				38A7A4C82D45102D00B23EFF /* LikeButton.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		38A7A4CA2D451DA400B23EFF /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				38A7A4CB2D451DB100B23EFF /* Function */,
+				3829A3C12D44B577004938A5 /* Extension */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		38A7A4CB2D451DB100B23EFF /* Function */ = {
+			isa = PBXGroup;
+			children = (
+				38A7A4CC2D451DBB00B23EFF /* Functions.swift */,
+			);
+			path = Function;
+			sourceTree = "<group>";
+		};
+		38A7A4CE2D45233600B23EFF /* UserPreference */ = {
+			isa = PBXGroup;
+			children = (
+				38A7A4CF2D45236800B23EFF /* UserPreference.swift */,
+			);
+			path = UserPreference;
+			sourceTree = "<group>";
+		};
+		38A7A4D12D45363400B23EFF /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				38A7A4D22D45363E00B23EFF /* VideoCache.swift */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		38A7A4D42D454CBB00B23EFF /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				38A7A4D52D454CC700B23EFF /* SettingsViewController.swift */,
+				38A7A4DE2D45561A00B23EFF /* SettingsViewModel.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		38A7A4DB2D454F9000B23EFF /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				38A7A4DC2D454F9700B23EFF /* SettingsAppCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		7145ECF2FEDB029FE315FD26 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CB827BD016A0D440E30A78E6 /* Pods-SwipeToWatch.debug.xcconfig */,
+				4FA9BF7D52FDDA527CD9B824 /* Pods-SwipeToWatch.release.xcconfig */,
+				DBA2392B0CA506D78BD626B1 /* Pods-SwipeToWatch-SwipeToWatchUITests.debug.xcconfig */,
+				48999AA2AC5229FE43168EBA /* Pods-SwipeToWatch-SwipeToWatchUITests.release.xcconfig */,
+				C182D94C54DE4E546FE25D42 /* Pods-SwipeToWatchTests.debug.xcconfig */,
+				BA5929459FEEAD1DAFAE71D2 /* Pods-SwipeToWatchTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		84C949F1606019A45DF656DA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7C7665E169FACEFB48EA5D8D /* Pods_SwipeToWatch.framework */,
+				5555F8DE90F4F0E970AEBD6D /* Pods_SwipeToWatch_SwipeToWatchUITests.framework */,
+				D0D15958B702EB9F92383AD6 /* Pods_SwipeToWatchTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -112,20 +408,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3829A37F2D448E69004938A5 /* Build configuration list for PBXNativeTarget "SwipeToWatch" */;
 			buildPhases = (
+				B678E6C5072F2F412D93534B /* [CP] Check Pods Manifest.lock */,
 				3829A3522D448E67004938A5 /* Sources */,
 				3829A3532D448E67004938A5 /* Frameworks */,
 				3829A3542D448E67004938A5 /* Resources */,
+				6373EF00EE0D3DDC0A161F88 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				3829A3582D448E67004938A5 /* SwipeToWatch */,
-			);
 			name = SwipeToWatch;
-			packageProductDependencies = (
-			);
 			productName = SwipeToWatch;
 			productReference = 3829A3562D448E67004938A5 /* SwipeToWatch.app */;
 			productType = "com.apple.product-type.application";
@@ -134,6 +427,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3829A3842D448E69004938A5 /* Build configuration list for PBXNativeTarget "SwipeToWatchTests" */;
 			buildPhases = (
+				58466B9E3B2825D58E71CB2C /* [CP] Check Pods Manifest.lock */,
 				3829A3682D448E69004938A5 /* Sources */,
 				3829A3692D448E69004938A5 /* Frameworks */,
 				3829A36A2D448E69004938A5 /* Resources */,
@@ -143,12 +437,7 @@
 			dependencies = (
 				3829A36E2D448E69004938A5 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				3829A36F2D448E69004938A5 /* SwipeToWatchTests */,
-			);
 			name = SwipeToWatchTests;
-			packageProductDependencies = (
-			);
 			productName = SwipeToWatchTests;
 			productReference = 3829A36C2D448E69004938A5 /* SwipeToWatchTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -157,21 +446,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3829A3872D448E69004938A5 /* Build configuration list for PBXNativeTarget "SwipeToWatchUITests" */;
 			buildPhases = (
+				032EF6C37426DBEABE2A2832 /* [CP] Check Pods Manifest.lock */,
 				3829A3722D448E69004938A5 /* Sources */,
 				3829A3732D448E69004938A5 /* Frameworks */,
 				3829A3742D448E69004938A5 /* Resources */,
+				E0843946D85B0FB97A979157 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				3829A3782D448E69004938A5 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				3829A3792D448E69004938A5 /* SwipeToWatchUITests */,
-			);
 			name = SwipeToWatchUITests;
-			packageProductDependencies = (
-			);
 			productName = SwipeToWatchUITests;
 			productReference = 3829A3762D448E69004938A5 /* SwipeToWatchUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -225,6 +511,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3829A3972D448E8B004938A5 /* Assets.xcassets in Resources */,
+				3829A3992D448E8B004938A5 /* LaunchScreen.storyboard in Resources */,
+				3829A3B92D44A8D0004938A5 /* video_response.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,11 +533,139 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		032EF6C37426DBEABE2A2832 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwipeToWatch-SwipeToWatchUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		58466B9E3B2825D58E71CB2C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwipeToWatchTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6373EF00EE0D3DDC0A161F88 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwipeToWatch/Pods-SwipeToWatch-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwipeToWatch/Pods-SwipeToWatch-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwipeToWatch/Pods-SwipeToWatch-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B678E6C5072F2F412D93534B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwipeToWatch-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E0843946D85B0FB97A979157 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwipeToWatch-SwipeToWatchUITests/Pods-SwipeToWatch-SwipeToWatchUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SwipeToWatch-SwipeToWatchUITests/Pods-SwipeToWatch-SwipeToWatchUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwipeToWatch-SwipeToWatchUITests/Pods-SwipeToWatch-SwipeToWatchUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3829A3522D448E67004938A5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38A7A4E32D4563BE00B23EFF /* NetworkLogger.swift in Sources */,
+				38A7A4D32D45363E00B23EFF /* VideoCache.swift in Sources */,
+				38A7A4D82D454D9900B23EFF /* AppSettings.swift in Sources */,
+				3829A3C32D44B587004938A5 /* UIView+Extension.swift in Sources */,
+				3829A3CC2D44F034004938A5 /* FeedButton.swift in Sources */,
+				3829A3942D448E8B004938A5 /* AppDelegate.swift in Sources */,
+				38A7A4DD2D454F9700B23EFF /* SettingsAppCell.swift in Sources */,
+				3869CD502D463790002BD196 /* FeedsErrorCell.swift in Sources */,
+				3829A3B72D44A76A004938A5 /* Video.swift in Sources */,
+				3829A3A42D449D0C004938A5 /* MainTabBarController.swift in Sources */,
+				3829A3A62D449D7A004938A5 /* FeedsViewController.swift in Sources */,
+				38A7A4DA2D454DD800B23EFF /* String+Extension.swift in Sources */,
+				38A7A4C92D45102D00B23EFF /* LikeButton.swift in Sources */,
+				3829A3C02D44B00B004938A5 /* FeedsCollectionViewCell.swift in Sources */,
+				38A7A4CD2D451DBB00B23EFF /* Functions.swift in Sources */,
+				3829A3B32D44A691004938A5 /* VideoListResponse.swift in Sources */,
+				3829A3C92D44DB6E004938A5 /* CustomSlider.swift in Sources */,
+				3829A3AE2D44A36F004938A5 /* FeedsViewModel.swift in Sources */,
+				3829A3BE2D44AE97004938A5 /* FeedsCollectionView.swift in Sources */,
+				38A7A4D02D45236800B23EFF /* UserPreference.swift in Sources */,
+				38A7A4E12D45639F00B23EFF /* APIService.swift in Sources */,
+				3829A3952D448E8B004938A5 /* SceneDelegate.swift in Sources */,
+				38A7A4DF2D45561A00B23EFF /* SettingsViewModel.swift in Sources */,
+				3829A3B52D44A711004938A5 /* User.swift in Sources */,
+				38A7A4D62D454CC700B23EFF /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +673,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3829A39D2D448E8F004938A5 /* SwipeToWatchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +681,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3829A3A12D448E92004938A5 /* SwipeToWatchUITests.swift in Sources */,
+				3829A3A22D448E92004938A5 /* SwipeToWatchUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,22 +701,37 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		3829A38E2D448E8B004938A5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3829A38D2D448E8B004938A5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		3829A3802D448E69004938A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB827BD016A0D440E30A78E6 /* Pods-SwipeToWatch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CA9KP7YRD3;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SwipeToWatch/Info.plist;
+				INFOPLIST_FILE = SwipeToWatch/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = NO;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -312,19 +747,23 @@
 		};
 		3829A3812D448E69004938A5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4FA9BF7D52FDDA527CD9B824 /* Pods-SwipeToWatch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CA9KP7YRD3;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SwipeToWatch/Info.plist;
+				INFOPLIST_FILE = SwipeToWatch/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = NO;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -459,11 +898,13 @@
 		};
 		3829A3852D448E69004938A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C182D94C54DE4E546FE25D42 /* Pods-SwipeToWatchTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CA9KP7YRD3;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
 				MARKETING_VERSION = 1.0;
@@ -478,11 +919,13 @@
 		};
 		3829A3862D448E69004938A5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA5929459FEEAD1DAFAE71D2 /* Pods-SwipeToWatchTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CA9KP7YRD3;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
 				MARKETING_VERSION = 1.0;
@@ -497,10 +940,12 @@
 		};
 		3829A3882D448E69004938A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DBA2392B0CA506D78BD626B1 /* Pods-SwipeToWatch-SwipeToWatchUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CA9KP7YRD3;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rabbanilham.SwipeToWatchUITests;
@@ -514,10 +959,12 @@
 		};
 		3829A3892D448E69004938A5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48999AA2AC5229FE43168EBA /* Pods-SwipeToWatch-SwipeToWatchUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CA9KP7YRD3;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rabbanilham.SwipeToWatchUITests;

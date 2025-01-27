@@ -200,13 +200,17 @@ extension FeedsCollectionView {
         if let currentCell = cellForItem(at: IndexPath(item: currentShownVideoIndex, section: 0)) as? FeedsCollectionViewCell {
             currentCell.togglePlayback(to: false)
         }
-        scrollToItem(at: .init(item: 0, section: 0), at: .centeredVertically, animated: false)
-        currentShownVideoIndex = 0
-        if let previousCell = cellForItem(at: IndexPath(item: currentShownVideoIndex + 1, section: 0)) as? FeedsCollectionViewCell {
-            previousCell.togglePlayback(to: false)
+        if numberOfItems(inSection: 0) > 0 {
+            scrollToItem(at: .init(item: 0, section: 0), at: .centeredVertically, animated: false)
         }
-        if let nextCell = cellForItem(at: IndexPath(item: currentShownVideoIndex + 2, section: 0)) as? FeedsCollectionViewCell {
-            nextCell.togglePlayback(to: false)
+        currentShownVideoIndex = 0
+        if numberOfItems(inSection: 0) > 1 {
+            if let previousCell = cellForItem(at: IndexPath(item: currentShownVideoIndex + 1, section: 0)) as? FeedsCollectionViewCell {
+                previousCell.togglePlayback(to: false)
+            }
+            if let nextCell = cellForItem(at: IndexPath(item: currentShownVideoIndex + 2, section: 0)) as? FeedsCollectionViewCell {
+                nextCell.togglePlayback(to: false)
+            }
         }
         isScrolledToTop = false
     }

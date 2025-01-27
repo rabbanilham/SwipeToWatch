@@ -26,6 +26,11 @@ class SettingsViewModel: ObservableObject {
                 UserPreference.shared.simulateEmptyVideoList = simulateEmptyVideoList
             }
             
+        case .simulateFetchDelay:
+            if let simulateFetchDelay = value as? Bool {
+                UserPreference.shared.simulateFetchDelay = simulateFetchDelay
+            }
+            
         case .simulateFetchError:
             if let simulateFetchError = value as? Bool {
                 UserPreference.shared.simulateFetchError = simulateFetchError

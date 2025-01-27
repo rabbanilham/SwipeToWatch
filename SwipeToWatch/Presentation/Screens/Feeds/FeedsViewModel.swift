@@ -9,13 +9,16 @@ import Foundation
 
 @MainActor
 class FeedsViewModel: ObservableObject {
-    @Published var videos = [Video]()
-    @Published var isLoading = false
+    // MARK: - Published Properties -
+    
     @Published var errorMessage: String?
+    @Published var isLoading = false
+    @Published var videos = [Video]()
 
+    // MARK: - Functions -
+    
     func fetchVideos() async {
         isLoading = true
-        errorMessage = nil
         let simulateError = UserPreference.shared.simulateFetchError
         
         if UserPreference.shared.useApiCall {
@@ -34,9 +37,13 @@ class FeedsViewModel: ObservableObject {
                 if UserPreference.shared.simulateEmptyVideoList {
                     videoList = []
                 }
-                isLoading = false
-                videos = videoList
-                errorMessage = nil
+                if UserPreference.shared.simulateFetchDelay {
+                    try await Task.sleep(nanoseconds: 3 * 1_000_000_000)
+                }
+                
+                self.isLoading = false
+                self.errorMessage = nil
+                self.videos = videoList
             } catch {
                 errorMessage = "Error: \(error)"
                 isLoading = false
@@ -60,9 +67,13 @@ class FeedsViewModel: ObservableObject {
                 if UserPreference.shared.simulateEmptyVideoList {
                     videoList = []
                 }
-                videos = videoList
-                isLoading = false
-                errorMessage = nil
+                if UserPreference.shared.simulateFetchDelay {
+                    try await Task.sleep(nanoseconds: 3 * 1_000_000_000)
+                }
+                
+                self.isLoading = false
+                self.errorMessage = nil
+                self.videos = videoList
             } catch {
                 errorMessage = "Error decoding JSON: \(error)"
                 isLoading = false

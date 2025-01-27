@@ -17,13 +17,11 @@ protocol FeedsCollectionViewCellDelegate: AnyObject {
 final class FeedsCollectionViewCell: UICollectionViewCell {
     // MARK: - Private Properties -
     
-    private var video: Video?
     private var chaseTime: CMTime = .zero
     private var isSeekInProgress = false
     private var isPlaying = false
     private var previousIntegerSecond: Int?
-    
-    private var sliderSensitivity: CGFloat = 1
+    private var video: Video?
     
     // MARK: - Public Properties -
     
@@ -239,13 +237,7 @@ final class FeedsCollectionViewCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        configureToZero()
-        activityIndicator.startAnimating()
-        likeButton.toggleLiked(to: false)
-        videoSlider.value = 0
-        pausedIndicatorImageView.alpha = 0
-        errorView.alpha = 0
-        removeObservers()
+        configurePrepareForReuse()
     }
 }
 
@@ -318,7 +310,7 @@ extension FeedsCollectionViewCell {
         guard let playerItem = object as? AVPlayerItem else { return }
         
         switch keyPath ?? "" {
-        case "status":
+        case .status:
             switch playerItem.status {
             case .readyToPlay:
                 activityIndicator.stopAnimating()
@@ -326,26 +318,20 @@ extension FeedsCollectionViewCell {
                 print("Player is ready to play")
             case .failed:
                 if let error = playerItem.error {
-                    activityIndicator.stopAnimating()
-                    errorDescriptionLabel.text = error.localizedDescription
-                    errorView.fadeIn()
-                    videoSlider.fadeOut()
+                    configurePlaybackError(error)
                     print("Playback failed with error: \(error.localizedDescription)")
                 }
             default:
                 break
             }
-        case "error":
+        case .error:
             if let error = playerItem.error {
-                activityIndicator.stopAnimating()
-                errorDescriptionLabel.text = error.localizedDescription
-                errorView.fadeIn()
-                videoSlider.fadeOut()
+                configurePlaybackError(error)
                 print("Error observed: \(error.localizedDescription)")
             }
-        case "isPlaybackLikelyToKeepUp":
+        case .isPlaybackLikelyToKeepUp:
             handleBuffering(!playerItem.isPlaybackLikelyToKeepUp)
-        case "isPlaybackBufferEmpty":
+        case .isPlaybackBufferEmpty:
             handleBuffering(playerItem.isPlaybackBufferEmpty)
         default:
             break
@@ -409,10 +395,10 @@ private extension FeedsCollectionViewCell {
     func addObservers() {
         guard let playerItem = player?.currentItem else { return }
         
-        playerItem.addObserver(self, forKeyPath: "status", options: [.new, .initial], context: nil)
-        playerItem.addObserver(self, forKeyPath: "error", options: [.old, .new], context: nil)
-        playerItem.addObserver(self, forKeyPath: "isPlaybackLikelyToKeepUp", options: [.new], context: nil)
-        playerItem.addObserver(self, forKeyPath: "isPlaybackBufferEmpty", options: [.new], context: nil)
+        playerItem.addObserver(self, forKeyPath: .status, options: [.new, .initial], context: nil)
+        playerItem.addObserver(self, forKeyPath: .error, options: [.old, .new], context: nil)
+        playerItem.addObserver(self, forKeyPath: .isPlaybackLikelyToKeepUp, options: [.new], context: nil)
+        playerItem.addObserver(self, forKeyPath: .isPlaybackBufferEmpty, options: [.new], context: nil)
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(playerDidReachEnd(_:)),
@@ -424,10 +410,10 @@ private extension FeedsCollectionViewCell {
     func removeObservers() {
         guard let playerItem = player?.currentItem else { return }
         
-        playerItem.removeObserver(self, forKeyPath: "status")
-        playerItem.removeObserver(self, forKeyPath: "error")
-        playerItem.removeObserver(self, forKeyPath: "isPlaybackLikelyToKeepUp")
-        playerItem.removeObserver(self, forKeyPath: "isPlaybackBufferEmpty")
+        playerItem.removeObserver(self, forKeyPath: .status)
+        playerItem.removeObserver(self, forKeyPath: .error)
+        playerItem.removeObserver(self, forKeyPath: .isPlaybackLikelyToKeepUp)
+        playerItem.removeObserver(self, forKeyPath: .isPlaybackBufferEmpty)
         NotificationCenter.default.removeObserver(self, name: .AVPlayerItemDidPlayToEndTime, object: player?.currentItem)
         
         if let timeObserver = timeObserver {
@@ -500,6 +486,23 @@ private extension FeedsCollectionViewCell {
         }
     }
     
+    func configurePrepareForReuse() {
+        configureToZero()
+        activityIndicator.startAnimating()
+        likeButton.toggleLiked(to: false)
+        videoSlider.value = 0
+        pausedIndicatorImageView.alpha = 0
+        errorView.alpha = 0
+        removeObservers()
+    }
+    
+    func configurePlaybackError(_ error: Error) {
+        activityIndicator.stopAnimating()
+        errorDescriptionLabel.text = error.localizedDescription
+        errorView.fadeIn()
+        videoSlider.fadeOut()
+    }
+    
     @objc
     func sliderValueChanged(_ sender: UISlider) {
         guard errorView.alpha != 1 else { return }
@@ -534,4 +537,12 @@ private extension FeedsCollectionViewCell {
     func didTapCell() {
         togglePlayback(to: !isPlaying, showPauseButton: true)
     }
+}
+
+// MARK: - Observer Key Paths -
+private extension String {
+    static let status = "status"
+    static let error = "error"
+    static let isPlaybackLikelyToKeepUp = "isPlaybackLikelyToKeepUp"
+    static let isPlaybackBufferEmpty = "isPlaybackBufferEmpty"
 }

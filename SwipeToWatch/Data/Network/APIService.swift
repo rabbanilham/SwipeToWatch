@@ -9,8 +9,8 @@ import Alamofire
 import Foundation
 
 class APIService {
-    static let shared = APIService()
     static let baseUrl = "https://6794514b5eae7e5c4d9128d9.mockapi.io/v1/"
+    static let shared = APIService()
     
     private init() {}
     
@@ -34,7 +34,8 @@ class APIService {
         let fullUrl = "\(baseUrl)\(endUrl)"
         
         let finalHeaders: HTTPHeaders = {
-            var finalHeaders = HTTPHeaders(headers)
+            let finalHeaders = HTTPHeaders(headers)
+            // additional request headers go here (don't forget to change let to var)
             
             return finalHeaders
         }()
@@ -47,8 +48,7 @@ class APIService {
             headers: finalHeaders
         )
         .validate(statusCode: 200...599)
-        .responseDecodable(of: T.self) { [weak self] response in
-            guard let self = self else { return }
+        .responseDecodable(of: T.self) { response in
             switch response.result {
             case .success(let data):
                 completion(data, nil)
@@ -69,7 +69,9 @@ class APIService {
         let fullUrl = "\(baseUrl)\(endUrl)"
         
         let finalHeaders: HTTPHeaders = {
-            var finalHeaders = HTTPHeaders(headers)
+            let finalHeaders = HTTPHeaders(headers)
+            // additional request headers go here (don't forget to change let to var)
+            
             return finalHeaders
         }()
         

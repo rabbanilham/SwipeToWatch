@@ -87,6 +87,9 @@ final class SettingsAppCell: UITableViewCell {
             case .simulateEmptyVideoList:
                 toggleSwitch.setOn(UserPreference.shared.simulateEmptyVideoList, animated: true)
                 return toggleSwitch
+            case .simulateFetchDelay:
+                toggleSwitch.setOn(UserPreference.shared.simulateFetchDelay, animated: true)
+                return toggleSwitch
             case .simulateFetchError:
                 toggleSwitch.setOn(UserPreference.shared.simulateFetchError, animated: true)
                 return toggleSwitch

@@ -19,13 +19,14 @@ protocol FeedsCollectionViewDelegate: AnyObject {
 final class FeedsCollectionView: UICollectionView {
     // MARK: - Private Properties -
     
-    private var videos = [Video]()
     private var currentShownVideoIndex: Int = 0
-    private var lastScrollDestination = ScrollDestination.current
     private var errorMessage: String?
     private var isError: Bool {
         return errorMessage != nil && errorMessage?.isEmpty == false && videos.isEmpty
     }
+    private var isScrolledToTop = false
+    private var lastScrollDestination = ScrollDestination.current
+    private var videos = [Video]()
     
     // MARK: - Public Properties -
     
@@ -57,12 +58,13 @@ final class FeedsCollectionView: UICollectionView {
         })
         backgroundColor = .black
         contentInsetAdjustmentBehavior = .never
+        dataSource = self
         decelerationRate = .fast
         delegate = self
-        dataSource = self
         isPagingEnabled = true
         scrollsToTop = false
         showsVerticalScrollIndicator = false
+        
         register(FeedsCollectionViewCell.self, forCellWithReuseIdentifier: "\(FeedsCollectionViewCell.self)")
         register(FeedsErrorCell.self, forCellWithReuseIdentifier: "\(FeedsErrorCell.self)")
         
@@ -118,7 +120,8 @@ extension FeedsCollectionView: UICollectionViewDelegate, UICollectionViewDataSou
         
         switch destination {
         case .next:
-            guard let currentCell = cellForItem(at: IndexPath(item: currentShownVideoIndex, section: 0)) as? FeedsCollectionViewCell,
+            guard numberOfItems(inSection: 0) > 1,
+                  let currentCell = cellForItem(at: IndexPath(item: currentShownVideoIndex, section: 0)) as? FeedsCollectionViewCell,
                   let nextCell = cellForItem(at: IndexPath(item: currentShownVideoIndex + 1, section: 0)) as? FeedsCollectionViewCell
             else { return }
             currentCell.togglePlayback(to: false)
@@ -126,7 +129,8 @@ extension FeedsCollectionView: UICollectionViewDelegate, UICollectionViewDataSou
         case .current:
             break
         case .previous:
-            guard let currentCell = cellForItem(at: IndexPath(item: currentShownVideoIndex, section: 0)) as? FeedsCollectionViewCell,
+            guard numberOfItems(inSection: 0) > 1,
+                  let currentCell = cellForItem(at: IndexPath(item: currentShownVideoIndex, section: 0)) as? FeedsCollectionViewCell,
                   let previousCell = cellForItem(at: IndexPath(item: currentShownVideoIndex - 1, section: 0)) as? FeedsCollectionViewCell
             else { return }
             currentCell.togglePlayback(to: false)
@@ -140,6 +144,7 @@ extension FeedsCollectionView: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        guard !isScrolledToTop else { return }
         switch lastScrollDestination {
         case .next:
             guard let previousCell = cellForItem(at: IndexPath(item: currentShownVideoIndex - 1, section: 0)) as? FeedsCollectionViewCell
@@ -172,6 +177,7 @@ extension FeedsCollectionView {
     }
     
     func togglePlayCurrentPage(to isPlaying: Bool) {
+        guard numberOfItems(inSection: 0) - 1 >= currentShownVideoIndex else { return }
         guard let currentCell = cellForItem(at: IndexPath(item: currentShownVideoIndex, section: 0)) as? FeedsCollectionViewCell else { return }
         currentCell.togglePlayback(to: isPlaying, showPauseButton: true)
     }
@@ -187,6 +193,22 @@ extension FeedsCollectionView {
         } else {
             emptyStateView.fadeOut()
         }
+    }
+    
+    func scrollFeedsToTop() {
+        isScrolledToTop = true
+        if let currentCell = cellForItem(at: IndexPath(item: currentShownVideoIndex, section: 0)) as? FeedsCollectionViewCell {
+            currentCell.togglePlayback(to: false)
+        }
+        scrollToItem(at: .init(item: 0, section: 0), at: .centeredVertically, animated: false)
+        currentShownVideoIndex = 0
+        if let previousCell = cellForItem(at: IndexPath(item: currentShownVideoIndex + 1, section: 0)) as? FeedsCollectionViewCell {
+            previousCell.togglePlayback(to: false)
+        }
+        if let nextCell = cellForItem(at: IndexPath(item: currentShownVideoIndex + 2, section: 0)) as? FeedsCollectionViewCell {
+            nextCell.togglePlayback(to: false)
+        }
+        isScrolledToTop = false
     }
 }
 

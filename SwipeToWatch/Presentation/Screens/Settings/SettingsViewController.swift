@@ -9,8 +9,12 @@ import SnapKit
 import UIKit
 
 final class SettingsViewController: UIViewController {
-    private let viewModel = SettingsViewModel()
+    // MARK: - Private Properties -
+    
     private let settings = AppSettings.allSettings()
+    private let viewModel = SettingsViewModel()
+    
+    // MARK: - UI Properties -
     
     private lazy var mainContainerView: UIView = {
         let view = UIView()
@@ -29,6 +33,8 @@ final class SettingsViewController: UIViewController {
         
         return tableView
     }()
+    
+    // MARK: - Lifecycle -
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -78,6 +78,7 @@ public enum VideoQuality: String, Codable {
 // MARK: - VideoPicture
 
 struct VideoPicture: Codable {
-    let id, nr: Int?
+    let id: Int?
+    let nr: Int?
     let picture: String?
 }

@@ -8,12 +8,18 @@
 import Foundation
 
 public final class UserPreference {
-    
+    // MARK: - Singleton -
     public static let shared = UserPreference()
+    
+    // MARK: - Private Init -
     
     private init () {}
     
+    // MARK: - UserDefaults -
+    
     public var userDefault = UserDefaults.standard
+    
+    // MARK: - Preference Properties -
     
     public var likedVideoIds: [Int] {
         get {
@@ -66,6 +72,16 @@ public final class UserPreference {
         }
     }
     
+    public var simulateFetchDelay: Bool {
+        get {
+            guard let value = userDefault.value(forKey: .simulateFetchDelay) as? Bool else { return false }
+            return value
+        }
+        set {
+            userDefault.set(newValue, forKey: .simulateFetchDelay)
+        }
+    }
+    
     public var simulateFetchError: Bool {
         get {
             guard let value = userDefault.value(forKey: .simulateFetchError) as? Bool else { return false }
@@ -86,6 +102,8 @@ public final class UserPreference {
         }
     }
 }
+
+// MARK: - Preference Keys -
 
 private extension String {
     static let likedVideoIds = "likedVideoIds"

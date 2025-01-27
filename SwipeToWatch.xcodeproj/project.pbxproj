@@ -24,7 +24,6 @@
 		3829A3BE2D44AE97004938A5 /* FeedsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3829A3BD2D44AE97004938A5 /* FeedsCollectionView.swift */; };
 		3829A3C02D44B00B004938A5 /* FeedsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3829A3BF2D44B00B004938A5 /* FeedsCollectionViewCell.swift */; };
 		3829A3C32D44B587004938A5 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3829A3C22D44B587004938A5 /* UIView+Extension.swift */; };
-		3829A3C92D44DB6E004938A5 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3829A3C82D44DB6E004938A5 /* CustomSlider.swift */; };
 		3829A3CC2D44F034004938A5 /* FeedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3829A3CB2D44F034004938A5 /* FeedButton.swift */; };
 		3869CD502D463790002BD196 /* FeedsErrorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869CD4F2D463790002BD196 /* FeedsErrorCell.swift */; };
 		38A7A4C92D45102D00B23EFF /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A7A4C82D45102D00B23EFF /* LikeButton.swift */; };
@@ -38,6 +37,7 @@
 		38A7A4DF2D45561A00B23EFF /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A7A4DE2D45561A00B23EFF /* SettingsViewModel.swift */; };
 		38A7A4E12D45639F00B23EFF /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A7A4E02D45639F00B23EFF /* APIService.swift */; };
 		38A7A4E32D4563BE00B23EFF /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A7A4E22D4563BE00B23EFF /* NetworkLogger.swift */; };
+		38D0716D2D472DFF00FD400D /* VideoDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D0716C2D472DFF00FD400D /* VideoDownloadManager.swift */; };
 		8244F8728C434D1B5E017A41 /* Pods_SwipeToWatchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0D15958B702EB9F92383AD6 /* Pods_SwipeToWatchTests.framework */; };
 		DF7187594CEF2D3E1A892B99 /* Pods_SwipeToWatch_SwipeToWatchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5555F8DE90F4F0E970AEBD6D /* Pods_SwipeToWatch_SwipeToWatchUITests.framework */; };
 		EB5B31BF0B6C28D0161B1165 /* Pods_SwipeToWatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C7665E169FACEFB48EA5D8D /* Pods_SwipeToWatch.framework */; };
@@ -82,7 +82,6 @@
 		3829A3BD2D44AE97004938A5 /* FeedsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsCollectionView.swift; sourceTree = "<group>"; };
 		3829A3BF2D44B00B004938A5 /* FeedsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsCollectionViewCell.swift; sourceTree = "<group>"; };
 		3829A3C22D44B587004938A5 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
-		3829A3C82D44DB6E004938A5 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		3829A3CB2D44F034004938A5 /* FeedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedButton.swift; sourceTree = "<group>"; };
 		3869CD4F2D463790002BD196 /* FeedsErrorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedsErrorCell.swift; sourceTree = "<group>"; };
 		38A7A4C82D45102D00B23EFF /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
@@ -96,6 +95,7 @@
 		38A7A4DE2D45561A00B23EFF /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		38A7A4E02D45639F00B23EFF /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		38A7A4E22D4563BE00B23EFF /* NetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
+		38D0716C2D472DFF00FD400D /* VideoDownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDownloadManager.swift; sourceTree = "<group>"; };
 		48999AA2AC5229FE43168EBA /* Pods-SwipeToWatch-SwipeToWatchUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwipeToWatch-SwipeToWatchUITests.release.xcconfig"; path = "Target Support Files/Pods-SwipeToWatch-SwipeToWatchUITests/Pods-SwipeToWatch-SwipeToWatchUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4FA9BF7D52FDDA527CD9B824 /* Pods-SwipeToWatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwipeToWatch.release.xcconfig"; path = "Target Support Files/Pods-SwipeToWatch/Pods-SwipeToWatch.release.xcconfig"; sourceTree = "<group>"; };
 		5555F8DE90F4F0E970AEBD6D /* Pods_SwipeToWatch_SwipeToWatchUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwipeToWatch_SwipeToWatchUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -229,7 +229,6 @@
 			children = (
 				3829A3CA2D44F021004938A5 /* Button */,
 				3829A3BB2D44AE3B004938A5 /* CollectionView */,
-				3829A3C72D44DB6A004938A5 /* Slider */,
 				3829A3BA2D44AE31004938A5 /* TabBarController */,
 				38A7A4DB2D454F9000B23EFF /* TableViewCell */,
 			);
@@ -305,18 +304,10 @@
 		3829A3C12D44B577004938A5 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				3829A3C22D44B587004938A5 /* UIView+Extension.swift */,
 				38A7A4D92D454DD800B23EFF /* String+Extension.swift */,
+				3829A3C22D44B587004938A5 /* UIView+Extension.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		3829A3C72D44DB6A004938A5 /* Slider */ = {
-			isa = PBXGroup;
-			children = (
-				3829A3C82D44DB6E004938A5 /* CustomSlider.swift */,
-			);
-			path = Slider;
 			sourceTree = "<group>";
 		};
 		3829A3CA2D44F021004938A5 /* Button */ = {
@@ -331,8 +322,9 @@
 		38A7A4CA2D451DA400B23EFF /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				38A7A4CB2D451DB100B23EFF /* Function */,
 				3829A3C12D44B577004938A5 /* Extension */,
+				38A7A4CB2D451DB100B23EFF /* Function */,
+				38D0716B2D472DF500FD400D /* Manager */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -376,6 +368,14 @@
 				38A7A4DC2D454F9700B23EFF /* SettingsAppCell.swift */,
 			);
 			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		38D0716B2D472DF500FD400D /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				38D0716C2D472DFF00FD400D /* VideoDownloadManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		7145ECF2FEDB029FE315FD26 /* Pods */ = {
@@ -646,6 +646,7 @@
 				38A7A4D82D454D9900B23EFF /* AppSettings.swift in Sources */,
 				3829A3C32D44B587004938A5 /* UIView+Extension.swift in Sources */,
 				3829A3CC2D44F034004938A5 /* FeedButton.swift in Sources */,
+				38D0716D2D472DFF00FD400D /* VideoDownloadManager.swift in Sources */,
 				3829A3942D448E8B004938A5 /* AppDelegate.swift in Sources */,
 				38A7A4DD2D454F9700B23EFF /* SettingsAppCell.swift in Sources */,
 				3869CD502D463790002BD196 /* FeedsErrorCell.swift in Sources */,
@@ -657,7 +658,6 @@
 				3829A3C02D44B00B004938A5 /* FeedsCollectionViewCell.swift in Sources */,
 				38A7A4CD2D451DBB00B23EFF /* Functions.swift in Sources */,
 				3829A3B32D44A691004938A5 /* VideoListResponse.swift in Sources */,
-				3829A3C92D44DB6E004938A5 /* CustomSlider.swift in Sources */,
 				3829A3AE2D44A36F004938A5 /* FeedsViewModel.swift in Sources */,
 				3829A3BE2D44AE97004938A5 /* FeedsCollectionView.swift in Sources */,
 				38A7A4D02D45236800B23EFF /* UserPreference.swift in Sources */,

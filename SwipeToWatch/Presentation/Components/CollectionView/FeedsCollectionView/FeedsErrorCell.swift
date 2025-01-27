@@ -74,7 +74,7 @@ final class FeedsErrorCell: UICollectionViewCell {
 
 extension FeedsErrorCell {
     func configure(message: String) {
-        descriptionLabel.text = "\(message)\n\nSimply pull to try again."
+        descriptionLabel.text = "\(message)\n\nSimply pull down to try again."
     }
 }
 

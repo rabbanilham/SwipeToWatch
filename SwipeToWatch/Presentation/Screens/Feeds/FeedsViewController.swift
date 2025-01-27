@@ -12,9 +12,9 @@ import UIKit
 final class FeedsViewController: UIViewController {
     // MARK: - Private Properties -
     
-    private let viewModel = FeedsViewModel()
     private var cancellables = Set<AnyCancellable>()
     private var isFirstAppearance = true
+    private let viewModel = FeedsViewModel()
     
     // MARK: - UI Properties -
     
@@ -80,7 +80,6 @@ final class FeedsViewController: UIViewController {
         configureUI()
         setupBindings()
         fetchVideos()
-        isFirstAppearance = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -106,6 +105,26 @@ extension FeedsViewController: FeedsCollectionViewDelegate {
     }
 }
 
+extension FeedsViewController {
+    func scrollFeedsToTop() {
+        feedsCollectionView.scrollFeedsToTop()
+    }
+    
+    func beginFeedsRefresh(usingRefreshControl: Bool) async {
+        tabBarItem.selectedImage = UIImage(systemName: "arrow.clockwise")
+        if usingRefreshControl {
+            refreshControl.beginRefreshing()
+        }
+
+        do {
+            await viewModel.fetchVideos()
+        }
+        
+        refreshControl.endRefreshing()
+        tabBarItem.selectedImage = UIImage(systemName: "list.and.film")
+    }
+}
+
 private extension FeedsViewController {
     func configureUI() {
         navigationItem.title = "Feeds"
@@ -113,12 +132,13 @@ private extension FeedsViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.backgroundColor = .clear
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         
         view.addSubview(mainContainerView)
         mainContainerView.snp.makeConstraints { $0.edges.equalToSuperview() }
         
         refreshControl.snp.makeConstraints { make in
-            make.height.equalTo(60)
+            make.height.equalTo(100)
             make.centerX.equalToSuperview()
         }
     }
@@ -130,7 +150,8 @@ private extension FeedsViewController {
             .sink { [weak self] videos in
                 guard let self = self else { return }
                 self.feedsCollectionView.setVideos(videos)
-                self.feedsCollectionView.toggleShowEmptyState(to: videos.isEmpty && self.viewModel.errorMessage == nil && !self.viewModel.isLoading)
+                self.feedsCollectionView.toggleShowEmptyState(to: videos.isEmpty && self.viewModel.errorMessage == nil && !self.viewModel.isLoading && !isFirstAppearance)
+                self.isFirstAppearance = false
             }
             .store(in: &cancellables)
         
@@ -187,11 +208,8 @@ private extension FeedsViewController {
     
     @objc
     func handleRefresh() {
-        refreshControl.beginRefreshing()
         Task {
-            await viewModel.fetchVideos()
-            feedsCollectionView.setVideos(viewModel.videos)
-            refreshControl.endRefreshing()
+            await beginFeedsRefresh(usingRefreshControl: true)
         }
     }
 }

@@ -8,6 +8,8 @@
 import SnapKit
 import UIKit
 
+// MARK: - FeedButtonDelegate -
+
 protocol FeedButtonDelegate: AnyObject {
     func didTapButton(_ button: FeedButton)
 }
@@ -49,6 +51,8 @@ class FeedButton: UIView {
         configureUI()
     }
     
+    // MARK: - Functions -
+    
     func configure(image: UIImage? = nil, text: String? = nil) {
         if let image = image {
             buttonImageView.image = image
@@ -61,10 +65,6 @@ class FeedButton: UIView {
     func handleButtonTapped() {
         delegate?.didTapButton(self)
     }
-}
-
-extension FeedButton {
-    
 }
 
 private extension FeedButton {

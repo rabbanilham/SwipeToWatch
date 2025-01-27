@@ -106,11 +106,8 @@ extension FeedsViewController: FeedsCollectionViewDelegate {
 }
 
 extension FeedsViewController {
-    func scrollFeedsToTop() {
-        feedsCollectionView.scrollFeedsToTop()
-    }
-    
     func beginFeedsRefresh(usingRefreshControl: Bool) async {
+        guard !viewModel.isLoading else { return }
         tabBarItem.selectedImage = UIImage(systemName: "arrow.clockwise")
         if usingRefreshControl {
             refreshControl.beginRefreshing()
@@ -122,6 +119,10 @@ extension FeedsViewController {
         
         refreshControl.endRefreshing()
         tabBarItem.selectedImage = UIImage(systemName: "list.and.film")
+        
+        if !usingRefreshControl, viewModel.errorMessage == nil {
+            scrollFeedsToTop()
+        }
     }
 }
 
@@ -187,6 +188,10 @@ private extension FeedsViewController {
         Task {
             await viewModel.fetchVideos()
         }
+    }
+    
+    func scrollFeedsToTop() {
+        feedsCollectionView.scrollFeedsToTop()
     }
     
     func showErrorAlert(message: String) {

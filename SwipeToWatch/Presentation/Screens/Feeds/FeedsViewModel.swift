@@ -45,15 +45,13 @@ class FeedsViewModel: ObservableObject {
                 self.errorMessage = nil
                 self.videos = videoList
             } catch {
-                errorMessage = "Error: \(error)"
-                isLoading = false
+                await configureError(error)
             }
         } else {
             do {
                 let fileName = "video_response\(simulateError ? "123" : "")" // purposefully use random path to simulate error if needed
                 guard let url = Bundle.main.url(forResource: fileName, withExtension: "json") else {
-                    isLoading = false
-                    errorMessage = "JSON file not found"
+                    await configureError(nil, message: "JSON file not found")
                     return
                 }
                 let data = try Data(contentsOf: url)
@@ -75,8 +73,7 @@ class FeedsViewModel: ObservableObject {
                 self.errorMessage = nil
                 self.videos = videoList
             } catch {
-                errorMessage = "Error decoding JSON: \(error)"
-                isLoading = false
+                await configureError(error)
             }
         }
     }
@@ -87,6 +84,24 @@ class FeedsViewModel: ObservableObject {
             UserPreference.shared.likedVideoIds.removeAll(where: { $0 == videoId })
         } else {
             UserPreference.shared.likedVideoIds.append(videoId)
+        }
+    }
+    
+    func configureError(_ _error: Error? = nil, message _errorMessage: String? = nil) async {
+        do {
+            if UserPreference.shared.simulateFetchDelay {
+                try await Task.sleep(nanoseconds: 3 * 1_000_000_000)
+            }
+            if let _error = _error {
+                errorMessage = "Error: \(_error)"
+            } else if let _errorMessage = _errorMessage {
+                errorMessage = "Error: \(_errorMessage)"
+            }
+            
+            isLoading = false
+        } catch {
+            errorMessage = "Error: \(error)"
+            isLoading = false
         }
     }
 }

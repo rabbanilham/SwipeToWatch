@@ -61,7 +61,6 @@ extension MainTabBarController: UITabBarControllerDelegate {
         if item == feedsTabBarItem, currentTabBarItem == item {
             Task {
                 await feedsViewController.beginFeedsRefresh(usingRefreshControl: false)
-                self.feedsViewController.scrollFeedsToTop()
             }
         }
         currentTabBarItem = item
